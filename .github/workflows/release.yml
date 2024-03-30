@@ -44,5 +44,5 @@ jobs:
         with:
           tag: $NOW
           artifacts: build/libs/revanced-patches/*jar
-          artifacts: build/libs/revanced-patches/*json
+          #artifacts: build/libs/revanced-patches/*json
           token: ${{ secrets.GITHUB_TOKEN }}
