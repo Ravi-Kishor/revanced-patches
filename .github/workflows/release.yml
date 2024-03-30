@@ -37,7 +37,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPOSITORY_PUSH_ACCESS }}
-        run: npm exec semantic-release
+      - name: Set current date as env variable
+        run: echo "NOW=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+      - name: Publish artifact
+        uses: ncipollo/release-action@v1
+        with:
+          tag: $NOW
+          artifacts: build/outputs/apk/lawnWithQuickstep/release/*.apk
+          token: ${{ secrets.GITHUB_TOKEN }}
