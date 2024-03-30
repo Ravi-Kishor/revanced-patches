@@ -43,5 +43,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           tag: $NOW
-          artifacts: build/outputs/apk/lawnWithQuickstep/release/*.apk
+          artifacts: build/libs/revanced-patches*
           token: ${{ secrets.GITHUB_TOKEN }}
